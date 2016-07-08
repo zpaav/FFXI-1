@@ -517,7 +517,7 @@ function init_gear_sets()
     sets.resting = {}
 
     sets.idle = {
-		ammo="Vanir Battery",
+		ammo="Staunch Tathlum",
 		head="Rawhide Mask",
 		neck="Loricate Torque +1",
 		ear1="Odnowa Earring +1",
@@ -540,7 +540,7 @@ function init_gear_sets()
     sets.idle.Town.Adoulin = set_combine(sets.idle, {body="Councilor's Garb"})
 
     sets.defense.PDT = {
-		ammo="Vanir Battery",
+		ammo="Staunch Tathlum",
 		head="Iuitl Headgear +1",
 		neck="Loricate Torque +1",
 		ear1="Odnowa Earring +1",
@@ -555,7 +555,7 @@ function init_gear_sets()
 		feet=HerculeanFeet.TA}
 
     sets.defense.MDT = {
-		ammo="Vanir Battery",
+		ammo="Staunch Tathlum",
 		head="Dampening Tam",
 		neck="Loricate Torque +1",
 		ear1="Odnowa Earring +1",
