@@ -32,66 +32,66 @@ function job_setup()
     -- Physical Spells
     --------------------------------------
 	
-    -- Physical spells with no particular (or known) stat mods
+    --- Physical spells with no particular (or known) stat mods
     blue_magic_maps.Physical = S{'Bilgestorm'}
 
-    -- Spells with heavy accuracy penalties, that need to prioritize accuracy first.
+    --- Spells with heavy accuracy penalties, that need to prioritize accuracy first.
     blue_magic_maps.PhysicalAcc = S{'Heavy Strike'}
 
-    -- Physical spells with STR stat mod
+    --- Physical spells with STR stat mod
     blue_magic_maps.PhysicalStr = S{'Battle Dance','Bloodrake','Death Scissors','Dimensional Death',
         'Empty Thrash','Quadrastrike','Sinker Drill','Spinal Cleave','Uppercut','Vertical Cleave'}
         
-    -- Physical spells with DEX stat mod
+    --- Physical spells with DEX stat mod
     blue_magic_maps.PhysicalDex = S{'Amorphic Spikes','Asuran Claws','Barbed Crescent','Claw Cyclone','Disseverment',
         'Foot Kick','Frenetic Rip','Goblin Rush','Hysteric Barrage','Paralyzing Triad',
         'Seedspray','Sickle Slash','Smite of Rage','Terror Touch','Thrashing Assault','Vanity Dive'}
         
-    -- Physical spells with VIT stat mod
+    --- Physical spells with VIT stat mod
     blue_magic_maps.PhysicalVit = S{'Body Slam','Cannonball','Delta Thrust','Glutinous Dart','Grand Slam',
         'Power Attack','Quad. Continuum','Sprout Smack','Sub-zero Smash'}
         
-    -- Physical spells with AGI stat mod
+    --- Physical spells with AGI stat mod
     blue_magic_maps.PhysicalAgi = S{'Benthic Typhoon','Feather Storm','Helldive','Hydro Shot','Jet Stream',
         'Pinecone Bomb','Spiral Spin','Wild Oats'}
 
-    -- Physical spells with INT stat mod
+    --- Physical spells with INT stat mod
     blue_magic_maps.PhysicalInt = S{'Mandibular Bite','Queasyshroom'}
 
-    -- Physical spells with MND stat mod
+    --- Physical spells with MND stat mod
     blue_magic_maps.PhysicalMnd = S{'Ram Charge','Screwdriver','Tourbillion'}
 
-    -- Physical spells with CHR stat mod
+    --- Physical spells with CHR stat mod
     blue_magic_maps.PhysicalChr = S{'Bludgeon'}
 
-    -- Physical spells with HP stat mod
+    --- Physical spells with HP stat mod
     blue_magic_maps.PhysicalHP = S{'Final Sting'}
 
     --------------------------------------
     -- Magical Spells
     --------------------------------------
 	
-    -- Magical spells with the typical INT mod
+    --- Magical spells with the typical INT mod
     blue_magic_maps.Magical = S{'Blastbomb','Blazing Bound','Bomb Toss','Cursed Sphere','Dark Orb','Death Ray',
         'Diffusion Ray','Droning Whirlwind','Embalming Earth','Firespit','Foul Waters',
         'Ice Break','Leafstorm','Maelstrom','Rail Cannon','Regurgitation','Rending Deluge',
         'Retinal Glare','Subduction','Tem. Upheaval','Water Bomb','Spectral Floe','Tenebral Crush','Searing Tempest',
 		'Anvil Lightning','Scouring Spate','Blinding Fulgor','Entomb'}
 
-    -- Magical spells with a primary MND mod
+    --- Magical spells with a primary MND mod
     blue_magic_maps.MagicalMnd = S{'Acrid Stream','Evryone. Grudge','Magic Hammer','Mind Blast'}
 
-    -- Magical spells with a primary CHR mod
+    --- Magical spells with a primary CHR mod
     blue_magic_maps.MagicalChr = S{'Eyes On Me','Mysterious Light'}
 
-    -- Magical spells with a VIT stat mod (on top of INT)
+    --- Magical spells with a VIT stat mod (on top of INT)
     blue_magic_maps.MagicalVit = S{'Thermal Pulse'}
 
-    -- Magical spells with a DEX stat mod (on top of INT)
+    --- Magical spells with a DEX stat mod (on top of INT)
     blue_magic_maps.MagicalDex = S{'Charged Whisker','Gates of Hades'}
             
-    -- Magical spells (generally debuffs) that we want to focus on magic accuracy over damage.
-    -- Add INT for damage where available, though.
+    --- Magical spells (generally debuffs) that we want to focus on magic accuracy over damage.
+    --- Add INT for damage where available, though.
     blue_magic_maps.MagicAccuracy = S{'1000 Needles','Absolute Terror','Actinic Burst','Auroral Drape','Awful Eye',
         'Blank Gaze','Blistering Roar','Blood Drain','Blood Saber','Chaotic Eye',
         'Cimicine Discharge','Cold Wave','Corrosive Ooze','Demoralizing Roar','Digest',
@@ -101,34 +101,37 @@ function job_setup()
         'Sandspin','Sandspray','Sheep Song','Soporific','Sound Blast','Stinking Gas',
         'Sub-zero Smash','Venom Shell','Voracious Trunk','Yawn'}
         
-    -- Breath-based spells
+    --- Breath-based spells
     blue_magic_maps.Breath = S{'Bad Breath','Flying Hip Press','Frost Breath','Heat Breath',
         'Hecatomb Wave','Magnetite Cloud','Poison Breath','Radiant Breath','Self-Destruct',
         'Thunder Breath','Vapor Spray','Wind Breath'}
 
-    -- Stun spells
+    --- Stun spells
     blue_magic_maps.Stun = S{'Blitzstrahl','Frypan','Head Butt','Sudden Lunge','Tail slap','Temporal Shift',
         'Thunderbolt','Whirl of Rage'}
         
-    -- Healing spells
+    --- Healing spells
     blue_magic_maps.Healing = S{'Healing Breeze','Magic Fruit','Plenilune Embrace','Pollen','Restoral',
 		'White Wind','Wild Carrot'}
     
-    -- Buffs that depend on blue magic skill
+    --- Buffs that depend on blue magic skill
     blue_magic_maps.SkillBasedBuff = S{'Barrier Tusk','Diamondhide','Magic Barrier','Metallic Body',
 		'Plasma Charge','Pyric Bulwark','Reactor Cool',}
 
-    -- Other general buffs
+    --- Other general buffs
     blue_magic_maps.Buff = S{'Amplification','Animating Wail','Battery Charge','Carcharian Verve','Cocoon',
         'Erratic Flutter','Exuviation','Fantod','Feather Barrier','Harden Shell',
         'Memento Mori','Nat. Meditation','Occultation','Orcish Counterstance','Refueling',
         'Regeneration','Saline Coat','Triumphant Roar','Warm-Up','Winds of Promyvion',
         'Zephyr Mantle'}
     
-    -- Spells that require Unbridled Learning to cast.
+    --- Spells that require Unbridled Learning to cast.
     unbridled_spells = S{'Absolute Terror','Bilgestorm','Blistering Roar','Bloodrake','Carcharian Verve',
         'Crashing Thunder','Droning Whirlwind','Gates of Hades','Harden Shell','Polar Roar',
         'Pyric Bulwark','Thunderbolt','Tourbillion','Uproot'}
+		
+    info.default_ja_ids = S{35, 204}
+    info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 		
     determine_haste_group()
 end
@@ -459,7 +462,7 @@ function init_gear_sets()
 
     sets.midcast['Blue Magic'].Healing = {
 		ammo="Hydrocera",
-		--head="Carmine Mask",
+		--head="Carmine Mask +1",
 		neck="Incanter's Torque",
 		ear1="Handler's Earring +1",
 		ear2="Handler's Earring",
@@ -474,7 +477,7 @@ function init_gear_sets()
 	
     sets.self_healing = {
 		ammo="Hydrocera",
-		--head="Carmine Mask",
+		--head="Carmine Mask +1",
 		neck="Incanter's Torque",
 		ear1="Handler's Earring +1",
 		ear2="Handler's Earring",
@@ -866,7 +869,7 @@ function job_state_change(stateField, newValue, oldValue)
     elseif stateField == 'Use Warp' then
         add_to_chat(8, '--- Warping ---')
         --equip({ring1="Warp Ring"})
-        send_command('input //gs equip sets.Warp; @wait 9; input /item "Warp Ring" <me>;')
+        send_command('input //gs equip sets.Warp; @wait 10; input /item "Warp Ring" <me>;')
     end
 end
 
