@@ -149,7 +149,7 @@ function user_setup()
 	send_command('bind ^f5 ja Efflux') --MX5--
 	
 	send_command('bind ^f6 ma MagicFruit st') --MX6--
-	send_command('bind ^f7 ') --MX7--
+	send_command('bind ^f7 ma MightyGuard') --MX7--
 	send_command('bind ^f8') --MX8--
 	send_command('bind ^f9') --MX9--
 	send_command('bind ^f10') --MX10--
@@ -312,7 +312,7 @@ function init_gear_sets()
 		ring1="Ramuh Ring +1"}
 
     sets.precast.WS['Requiescat'] = {
-		ammo="Quartz Tathlum +1",
+		ammo="Hydrocera",
 		--head="Carmine Mask +1",
 		neck=gear.ElementalGorget,
 		ear1="Brutal Earring",
@@ -321,7 +321,7 @@ function init_gear_sets()
 		--hands="Carmine Finger Gauntlets +1",
 		ring1="Epona's Ring",
 		ring2="Rufescent Ring",
-		back="Bleating Mantle",
+		back=Rosmerta.TP,
 		waist=gear.ElementalBelt,
 		--legs="Carmine Cuisses +1",
 		--feet="Carmine Greaves +1"
@@ -362,12 +362,12 @@ function init_gear_sets()
 		ear2="Dignitary's Earring",
 		body="Despair Mail",
 		hands="Adhemar Wristbands",
-		ring1="Rufescent Ring",
-		ring2="Ifrit Ring",
+		ring1="Ifrit Ring",
+		ring2="Rufescent Ring",
 		back="Cornflower Cape",
 		--waist="Prosilio belt +1",
 		legs="Samnuha Tights",
-		feet=HerculeanFeet.TA}
+		feet="Adhemar Gamashes"}
 
     sets.midcast['Blue Magic'].PhysicalAcc = sets.midcast['Blue Magic'].Physical
 
@@ -533,11 +533,9 @@ function init_gear_sets()
 
     sets.idle.Learning = set_combine(sets.idle, sets.Learning)
 	
-    sets.idle.PDT = set_combine(sets.idle)
+    sets.idle.PDT = sets.idle
 
-    sets.idle.Town = set_combine(sets.idle)
-	
-    sets.idle.Town.Adoulin = set_combine(sets.idle, {body="Councilor's Garb"})
+    sets.idle.Town = sets.idle
 
     sets.defense.PDT = {
 		ammo="Staunch Tathlum",
@@ -869,7 +867,7 @@ function job_state_change(stateField, newValue, oldValue)
     elseif stateField == 'Use Warp' then
         add_to_chat(8, '--- Warping ---')
         --equip({ring1="Warp Ring"})
-        send_command('input //gs equip sets.Warp; @wait 10; input /item "Warp Ring" <me>;')
+        send_command('@input //gs equip sets.Warp;wait 9;input /item "Warp Ring" <me>;')
     end
 end
 
