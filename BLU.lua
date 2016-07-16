@@ -75,8 +75,7 @@ function job_setup()
     blue_magic_maps.Magical = S{'Blastbomb','Blazing Bound','Bomb Toss','Cursed Sphere','Dark Orb','Death Ray',
         'Diffusion Ray','Droning Whirlwind','Embalming Earth','Firespit','Foul Waters',
         'Ice Break','Leafstorm','Maelstrom','Rail Cannon','Regurgitation','Rending Deluge',
-        'Retinal Glare','Subduction','Tem. Upheaval','Water Bomb','Spectral Floe','Tenebral Crush','Searing Tempest',
-		'Anvil Lightning','Scouring Spate','Blinding Fulgor','Entomb'}
+        'Retinal Glare','Subduction','Tem. Upheaval','Water Bomb'}
 
     --- Magical spells with a primary MND mod
     blue_magic_maps.MagicalMnd = S{'Acrid Stream','Evryone. Grudge','Magic Hammer','Mind Blast'}
@@ -342,7 +341,20 @@ function init_gear_sets()
 		legs="Samnuha Tights",
 		feet="Adhemar Gamashes"}
 
-    sets.precast.WS['Sanguine Blade'] = {}
+    sets.precast.WS['Judgment'] = {
+		ammo="Floestone",
+		head="Lilitu Headpiece",
+		neck=gear.ElementalGorget, --neck="Caro Necklace",
+		ear1="Moonshade Earring",
+		ear2="Ishvara Earring",
+		body="Adhemar Jacket",
+		hands="Adhemar Wristbands",
+		ring1="Ifrit Ring",
+		ring2="Rufescent Ring",
+		back=Rosmerta.WS,
+		waist=gear.ElementalBelt, --waist="Grunfeld rope",
+		legs="Samnuha Tights",
+		feet="Adhemar Gamashes"}
     
     --------------------------------------
     -- Midcast sets
@@ -357,7 +369,7 @@ function init_gear_sets()
     sets.midcast['Blue Magic'].Physical = {
 		ammo="Floestone",
 		head="Dampening Tam",
-		--neck="Caro Necklace",
+		neck="Sanctity Necklace",
 		ear1="Cessance Earring",
 		ear2="Dignitary's Earring",
 		body="Despair Mail",
@@ -365,7 +377,7 @@ function init_gear_sets()
 		ring1="Ifrit Ring",
 		ring2="Rufescent Ring",
 		back="Cornflower Cape",
-		--waist="Prosilio belt +1",
+		waist="Caudata Belt",
 		legs="Samnuha Tights",
 		feet="Adhemar Gamashes"}
 
