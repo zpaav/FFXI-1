@@ -12,6 +12,7 @@ function job_setup()
     state.Buff.Diffusion = buffactive.Diffusion or false
     state.Buff.Efflux = buffactive.Efflux or false
     state.Buff.Doom = buffactive.Doom or false
+	
 	gear.default.obi_waist = "Eschan Stone"
     
 	blue_magic_maps = {}
@@ -101,17 +102,15 @@ function user_setup()
 		
 	state.RuneMode = M('None','Lux','Tenebrae','Ignis','Gelus','Flabra','Tellus','Sulpor','Unda')
     state.MagicBurst = M(false, 'Magic Burst')
-    state.RancorMantle = M(false, 'Rancor Mantle')
 
-	send_command('bind ^f1 ja UnbridledLearning') --MX1--
-	send_command('bind ^f2 ja Diffusion') --MX2--
-	send_command('bind ^f3 ja BurstAffinity') --MX3--
-	send_command('bind ^f4 ja ChainAffinity') --MX4--
-	send_command('bind ^f5 ja Efflux') --MX5--
-	
+	send_command('bind ^f1 ja Diffusion') --MX1--
+	send_command('bind ^f2 ja BurstAffinity') --MX2--
+	send_command('bind ^f3 input //berserk;wait 1;//aggressor') --MX3--
+	send_command('bind ^f4 input //Efflux;wait 1;//ChainAffinity') --MX4--
+	send_command('bind ^f5') --MX5--
 	send_command('bind ^f6 ma MagicFruit st') --MX6--
 	send_command('bind ^f7 ma MightyGuard') --MX7--
-	send_command('bind ^f8') --MX8--
+	send_command('bind ^f8 ma CarcharianVerve') --MX8--
 	send_command('bind ^f9') --MX9--
 	send_command('bind ^f10') --MX10--
 	
@@ -120,9 +119,8 @@ function user_setup()
 	send_command('bind !f3 ws SanguineBlade') --M3--
 	--send_command('bind !f4')
 	send_command('bind !f5 ws Requiescat') --M4--
-	
-	send_command('bind !f6 gs c cycle RuneMode') --M5--
-	send_command('bind !f7 gs c RuneMode') --M6--
+	send_command('bind !f6 ja Unda') --M5--
+	send_command('bind !f7 gs c cycle RuneMode') --M6--
 	send_command('bind !f8 gs c toggle MagicBurst') --M7--
 	send_command('bind !f9') --M8--
 	
@@ -141,7 +139,6 @@ function user_unload()
 	send_command('unbind ^f8')
 	send_command('unbind ^f9')
 	send_command('unbind ^f10')
-	
 	send_command('unbind !f1')
 	send_command('unbind !f2')
 	send_command('unbind !f3')
@@ -253,18 +250,18 @@ function init_gear_sets()
 		ring1="Ramuh Ring +1"}
     sets.precast.WS['Requiescat'] = {
 		ammo="Hydrocera",
-		head="Dampening Tam",
+		head="Jhakri Coronal +1",
 		neck=gear.ElementalGorget,
 		ear1="Brutal Earring",
 		ear2="Moonshade Earring",
-		body="Telchine chasuble",
-		hands="Telchine Gloves",
+		body="Jhakri Robe +1",
+		hands="Jhakri Cuffs +1",
 		ring1="Epona's Ring",
 		ring2="Rufescent Ring",
 		back=Rosmerta.TP,
 		waist=gear.ElementalBelt,
-		legs="Telchine Braconi",
-		feet="Medium's Sabots"}
+		legs="Carmine Cuisses +1",
+		feet="Jhakri Pigaches +1"}
     sets.precast.WS['Savage Blade'] = {
 		ammo="Floestone",
 		head="Lilitu Headpiece",
@@ -307,7 +304,7 @@ function init_gear_sets()
 		ammo="Floestone",
 		head="Lilitu Headpiece",
 		neck="Caro Necklace",
-		ear1="Cessance Earring",
+		ear1="Zennaroi Earring",
 		ear2="Dignitary's Earring",
 		body="Despair Mail",
 		hands="Adhemar Wristbands",
@@ -321,7 +318,7 @@ function init_gear_sets()
 		ammo="Falcon Eye",
 		head="Dampening Tam",
 		neck="Sanctity Necklace",
-		ear1="Cessance Earring",
+		ear1="Zennaroi Earring",
 		ear2="Dignitary's Earring",
 		body="Adhemar Jacket",
 		hands="Leyline Gloves",
@@ -429,12 +426,12 @@ function init_gear_sets()
     sets.midcast.self_healing = set_combine(sets.midcast.Cure,{
 		--neck="Phalaina locket",
 		--hands="Buremte Gloves",
-		ring2="Asklepian Ring",
+		ring1="Asklepian Ring",
 		waist="Gishdubar sash"})	
-	sets.midcast['Diaga']={waist="Chaac belt"}
-	sets.midcast['Flash']=sets.midcast['Diaga']
-	sets.midcast['Glutinous Dart']=set_combine(sets.midcast['Blue Magic'].MagicAccuracy, sets.midcast['Diaga'])
-	sets.midcast['Elemental Magic']= sets.midcast['Blue Magic'].Magical
+	sets.midcast['Diaga'] = {waist="Chaac belt"}
+	sets.midcast['Flash'] = sets.midcast['Diaga']
+	sets.midcast['Glutinous Dart'] = set_combine(sets.midcast['Blue Magic'].MagicAccuracy, sets.midcast['Diaga'])
+	sets.midcast['Elemental Magic'] = sets.midcast['Blue Magic'].Magical
 	sets.midcast['Enhancing Magic'] = {}
 	sets.midcast.Phalanx = set_combine(sets.midcast['Enhancing Magic'], {})	
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'],{head="Amalric Coif",back="Grapevine Cape",waist="Gishdubar sash"})
@@ -453,13 +450,13 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		ear1="Odnowa Earring +1",
 		ear2="Etiolation Earring",
-		body="Mekosu. Harness",
+		body="Jhakri Robe +1",
 		hands="Serpentes Cuffs",
 		ring1="Purity Ring",
 		ring2="Defending Ring",
 		back="Xucau Mantle",
 		waist="Flume Belt",
-		legs="Gyve Trousers",
+		legs="Carmine Cuisses +1",
 		feet="Serpentes Sabots"}
     sets.idle.PDT = sets.idle
 	sets.idle.Refresh = sets.idle
@@ -468,7 +465,7 @@ function init_gear_sets()
 		ammo="Staunch Tathlum",
 		head="Iuitl Headgear +1",
 		neck="Loricate Torque +1",
-		ear1="Odnowa Earring +1",
+		ear1="Genmei Earring",
 		ear2="Colossus's Earring",
 		body="Emet Harness +1",
 		hands="Iuitl Wristbands +1",
@@ -508,7 +505,7 @@ function init_gear_sets()
 		body="Adhemar Jacket",
 		hands=HerculeanHands.TA,
 		ring1="Epona's Ring",
-		ring2="Petrov Ring",
+		ring2="Hetairoi Ring",
 		back=Rosmerta.TP,
 		waist="Windbuffet Belt +1", --Shetal Stone
 		legs=HerculeanLegs.DW,
@@ -535,7 +532,7 @@ function init_gear_sets()
 		body="Adhemar Jacket",
 		hands=HerculeanHands.TA,
 		ring1="Epona's Ring",
-		ring2="Petrov Ring",
+		ring2="Hetairoi Ring",
 		back=Rosmerta.TP,
 		waist="Windbuffet Belt +1", --Shetal Stone
 		legs=HerculeanLegs.DW,
@@ -562,7 +559,7 @@ function init_gear_sets()
 		body="Adhemar Jacket",
 		hands=HerculeanHands.TA,
 		ring1="Epona's Ring",
-		ring2="Petrov Ring",
+		ring2="Hetairoi Ring",
 		back=Rosmerta.TP,
 		waist="Windbuffet Belt +1",
 		legs="Samnuha Tights",
@@ -594,11 +591,9 @@ function job_pretarget(spell, action, spellMap, eventArgs)
 end
 
 function change_midcast(spell, action, spellMap, eventArgs)
-
 end
 	
 function job_precast(spell, action, spellMap, eventArgs)
-
 	if buffactive['Terror'] or buffactive['Stun'] then
             eventArgs.cancel = true
 			add_to_chat(122, "Unable to act, action cancelled")
@@ -606,7 +601,7 @@ function job_precast(spell, action, spellMap, eventArgs)
 	end
     if unbridled_spells:contains(spell.english) and not state.Buff['Unbridled Learning'] then
         eventArgs.cancel = true
-        windower.send_command('@input /ja "Unbridled Learning" <me>; wait 1.5; input /ma "'..spell.name..'" '..spell.target.name)
+        windower.send_command('@input /ja "Unbridled Learning" <me>;wait 1.5;input /ma "'..spell.name..'" '..spell.target.name)
     end
 	if spell.english == 'Lunge' then
         local abil_recasts = windower.ffxi.get_ability_recasts()
@@ -658,7 +653,6 @@ function job_precast(spell, action, spellMap, eventArgs)
             return
         end
     end
-
 end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
@@ -717,7 +711,6 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
     elseif spell.skill == 'Elemental Magic' then
 		equip(sets.midcast['Blue Magic'].Magical)
 	end
-	
 end
 
 function job_get_spell_map(spell, default_spell_map)
@@ -741,6 +734,9 @@ end
 
 function determine_haste_group()
     classes.CustomMeleeGroups:clear()
+		-- buffactive[580] = Geo-Haste
+		-- buffactive[33] = Haste/Haste II
+		-- buffactive[604] = Mighty Guard
 	if ( ( (buffactive[33] or buffactive[580] or buffactive.embrava) and (buffactive.march or buffactive[604]) ) or
 		   ( buffactive[33] and (buffactive[580] or buffactive.embrava) ) or
 		   ( buffactive.march == 2 and buffactive[604] ) ) then
@@ -759,14 +755,12 @@ function determine_haste_group()
 	end
 end
 
-
 function job_buff_change(buff, gain)
 	if buffactive['Haste'] then
         if buffactive['Mighty Guard'] and state.HybridMode.value == 'Normal' then
             state.CombatForm:set("Haste")
 		else
 			state.CombatForm:reset()
-			
 			update_combat_form()		
 		end
     end
