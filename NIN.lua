@@ -20,7 +20,7 @@ function job_setup()
     state.Buff.Sange = buffactive.sange or false
     state.Buff.Innin = buffactive.innin or false
     state.TreasureMode:set('Tag')
-    state.HasteMode = M{['description']='Haste Mode', 'Normal', 'Hi'}
+    state.HasteMode = M{['description']='Haste Mode', 'Hi', 'Normal'}
     state.CapacityMode = M(false, 'Capacity Point Mantle')
 	state.warned = M(false)
 
@@ -28,8 +28,8 @@ function job_setup()
     gear.RegularAmmo = 'Togakushi Shuriken'
     gear.SangeAmmo = 'Happo Shuriken'
 	
-    LugraWSList = S{'Blade: Shun','Blade: Ku','Blade: Jin','Blade: Ten','Blade: Metsu','Blade: Kamu'}
-	wsList = S{'Blade: Hi','Blade: Kamu','Blade: Ten','Blade: Shun','Blade: Metsu'}
+    LugraWSList = S{'Blade: Shun','Blade: Ku','Blade: Jin','Blade: Metsu','Blade: Kamu'}
+	wsList = S{'Blade: Hi','Blade: Kamu','Blade: Shun','Blade: Metsu','Blade: Ten'}
 	
     update_combat_form()
 
@@ -115,32 +115,37 @@ function init_gear_sets()
     --------------------------------------
 	
     Andartia = {}
-    Andartia.TP = {name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
+    Andartia.TP = {name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10',}}
     Andartia.DEXWS = {name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
-    Andartia.STRWS = {name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
+    Andartia.STRWS = {name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 	
 	HerculeanHead = {}
 	HerculeanHead.FC = {name="Herculean Helm", augments={'Mag. Acc.+18 "Mag.Atk.Bns."+18','"Fast Cast"+2','MND+5','Mag. Acc.+11','"Mag.Atk.Bns."+7',}}
-	HerculeanHead.DW = {name="Herculean Helm", augments={'Attack+20','"Dual Wield"+4','STR+7','Accuracy+8',}}
+	HerculeanHead.DW = {name="Herculean Helm", augments={'Attack+11','"Dual Wield"+5','DEX+4','Accuracy+11',}}
 	HerculeanHead.Nuke = {name="Herculean Helm", augments={'Mag. Acc.+18 "Mag.Atk.Bns."+18','"Fast Cast"+2','MND+5','Mag. Acc.+11','"Mag.Atk.Bns."+7',}}
-	HerculeanHead.WSDEX = {name="Herculean Helm", augments={'Attack+17','Weapon skill damage +5%','DEX+9',}}
+	HerculeanHead.DEXWS = {name="Herculean Helm", augments={'Attack+17','Weapon skill damage +5%','DEX+9',}}
+	HerculeanHead.CritDEX = {name="Herculean Helm", augments={'Accuracy+24 Attack+24','Crit. hit damage +4%','DEX+8','Attack+12',}}
+	
+	HerculeanBody = {}
+	HerculeanBody.TA = {name="Herculean Vest", augments={'Accuracy+30','"Triple Atk."+3',}}
+	HerculeanBody.STRWS = {name="Herculean Vest", augments={'Accuracy+28','Weapon skill damage +3%','STR+10','Attack+10',}}
 
 	HerculeanHands = {}
-	HerculeanHands.TA = {name="Herculean Gloves", augments={'Attack+25','"Triple Atk."+2','DEX+10','Accuracy+15',}}
-	HerculeanHands.WS = {name="Herculean Gloves", augments={'Weapon skill damage +5%','Attack+13',}}
+	HerculeanHands.TA = {name="Herculean Gloves", augments={'Accuracy+11','"Triple Atk."+3','DEX+10','Attack+7',}}
+	HerculeanHands.DEXWS = {name="Herculean Gloves", augments={'Attack+12','Weapon skill damage +4%','DEX+7','Accuracy+9',}}
+	HerculeanHands.STRWS = {name="Herculean Gloves", augments={'Accuracy+29','Weapon skill damage +2%','STR+10','Attack+6',}}
 	HerculeanHands.CritDEX = {name="Herculean Gloves", augments={'Rng.Acc.+16','Crit.hit rate+3','DEX+10','Accuracy+7','Attack+8',}}
 	
 	HerculeanLegs = {}
 	HerculeanLegs.DW = {name="Herculean Trousers", augments={'Accuracy+23','"Dual Wield"+5','AGI+6','Attack+14',}}
-	HerculeanLegs.WSDEX = {name="Herculean Trousers", augments={'Attack+16','Weapon skill damage +3%','DEX+5',}}
 	HerculeanLegs.Nuke = {name="Herculean Trousers", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Magic burst mdg.+1%','STR+9','Mag. Acc.+13','"Mag.Atk.Bns."+12',}}
 	
 	HerculeanFeet = {}
 	HerculeanFeet.DW = {name="Herculean Boots", augments={'Accuracy+24','"Dual Wield"+5','AGI+1','Attack+6',}}
-	HerculeanFeet.TA = {name="Herculean Boots", augments={'Attack+26','"Triple Atk."+4','AGI+7','Accuracy+11',}}
-	HerculeanFeet.WSDEX = {name="Herculean Boots", augments={'Attack+25','Weapon skill damage +2%','DEX+13','Accuracy+2',}}
-	HerculeanFeet.WSAGI = {name="Herculean Boots", augments={'Crit.hit rate+4','AGI+8','Accuracy+11',}}
-	HerculeanFeet.Nuke = {}
+	HerculeanFeet.TA = {name="Herculean Boots", augments={'Accuracy+22 Attack+22','"Triple Atk."+3','Accuracy+7',}}
+	HerculeanFeet.DEXWS = {name="Herculean Boots", augments={'Accuracy+27','Weapon skill damage +2%','DEX+11','Attack+14',}}
+	HerculeanFeet.STRWS = {name="Herculean Boots", augments={'Weapon skill damage +4%','STR+8','Accuracy+12','Attack+2',}}
+	HerculeanFeet.CritAGI = {name="Herculean Boots", augments={'Accuracy+21','Crit.hit rate+4','AGI+15',}}
 	
 	AdhemarHands = {}
 	AdhemarHands.B = {name="Adhemar Wristbands", augments={'STR+10','DEX+10','Attack+15',}}
@@ -155,11 +160,10 @@ function init_gear_sets()
 	
     sets.WSDayBonus = {head="Gavialis Helm"}
     sets.Lugra = {ear1="Lugra Earring", ear2="Lugra Earring +1"}
+	sets.MoonshadeWS = {ear1="Moonshade Earring",ear2="Ishvara Earring"}
     sets.MoonLugra = {ear1="Moonshade Earring", ear2="Lugra Earring +1"}
     sets.BrutalMoon = {ear1="Brutal Earring",ear2="Moonshade Earring"}
-    sets.BrutalDEX = {ear1="Brutal Earring",ear2="Dominance Earring +1"}
     sets.DEXWS = {ear1="Dominance Earring +1",ear2="Ishvara Earring"}
-	sets.MoonshadeWS = {ear1="Moonshade Earring",ear2="Ishvara Earring"}
     sets.Rajas = {ring1="Petrov Ring"}
 
     sets.RegularAmmo = {ammo=gear.RegularAmmo}
@@ -203,7 +207,7 @@ function init_gear_sets()
 		ear1="Genmei Earring",
 		ear2="Etiolation Earring",
 		body="Emet Harness +1",
-		hands=HerculeanHands.TA,
+		hands="Otronif Gloves +1",
 		ring1="Gelatinous Ring +1",
 		ring2="Defending Ring",
 		back="Xucau Mantle",
@@ -275,14 +279,22 @@ function init_gear_sets()
 		body="Adhemar Jacket",
 		hands="Floral Gauntlets",
 		ring1="Epona's Ring",
-		ring2="Hetairoi Ring",
+		ring2="Petrov Ring",
 		back=Andartia.TP,
 		waist="Patentia Sash",
 		legs=HerculeanLegs.DW,
 		feet="Hizamaru sune-ate +1"}
-    sets.engaged.Low = set_combine(sets.engaged, {})
+    sets.engaged.Low = set_combine(sets.engaged, {waist="Kentarch Belt +1",})
     sets.engaged.Mid = set_combine(sets.engaged.Low, {})
-    sets.engaged.Acc = set_combine(sets.engaged.Mid, {})
+    sets.engaged.Acc = set_combine(sets.engaged.Mid, {
+		head="Dampening Tam",
+		body="Abnoba Kaftan",
+		hands="Ryuo Tekko",
+		ear1="Dignitary's Earring",
+		ring2="Ramuh Ring +1",
+		waist="Kentarch Belt +1",
+		legs="Hizamaru Hizayoroi +1",
+		feet=HerculeanFeet.CritAGI})
 	
     sets.engaged.MidHaste = {
 		ammo=gear.RegularAmmo,
@@ -293,14 +305,22 @@ function init_gear_sets()
 		body="Adhemar Jacket",
 		hands=AdhemarHands.B,
 		ring1="Epona's Ring",
-		ring2="Hetairoi Ring",
+		ring2="Petrov Ring",
 		back=Andartia.TP,
 		waist="Windbuffet Belt +1",
 		legs="Samnuha Tights",
 		feet="Hizamaru sune-ate +1"}
-    sets.engaged.Low.MidHaste = set_combine(sets.engaged.Low.MidHaste, {})
+    sets.engaged.Low.MidHaste = set_combine(sets.engaged.Low.MidHaste, {waist="Kentarch Belt +1",})
     sets.engaged.Mid.MidHaste = set_combine(sets.engaged.Mid.MidHaste, {})
-    sets.engaged.Acc.MidHaste = set_combine(sets.engaged.Acc.MidHaste, {})
+    sets.engaged.Acc.MidHaste = set_combine(sets.engaged.Acc.MidHaste, {
+		head="Dampening Tam",
+		body="Abnoba Kaftan",
+		hands="Ryuo Tekko",
+		ear1="Dignitary's Earring",
+		ring2="Ramuh Ring +1",
+		waist="Kentarch Belt +1",
+		legs="Hizamaru Hizayoroi +1",
+		feet=HerculeanFeet.CritAGI})
 
     sets.engaged.MaxHaste = {
 		ammo=gear.RegularAmmo,
@@ -308,17 +328,25 @@ function init_gear_sets()
 		neck="Erudition Necklace",
 		ear1="Brutal Earring",
 		ear2="Cessance Earring",
-		body="Rawhide Vest",
+		body=HerculeanBody.TA,
 		hands=AdhemarHands.B,
 		ring1="Epona's Ring",
-		ring2="Hetairoi Ring",
+		ring2="Petrov Ring",
 		back=Andartia.TP,
 		waist="Windbuffet Belt +1",
 		legs="Samnuha Tights",
 		feet=HerculeanFeet.TA}
-    sets.engaged.Low.MaxHaste = set_combine(sets.engaged.MaxHaste, {})
+    sets.engaged.Low.MaxHaste = set_combine(sets.engaged.MaxHaste, {waist="Kentarch Belt +1",})
     sets.engaged.Mid.MaxHaste = set_combine(sets.engaged.Low.MaxHaste, {})
-    sets.engaged.Acc.MaxHaste = set_combine(sets.engaged.Mid.MaxHaste, {})
+    sets.engaged.Acc.MaxHaste = set_combine(sets.engaged.Mid.MaxHaste, {
+		head="Dampening Tam",
+		body="Abnoba Kaftan",
+		hands="Ryuo Tekko",
+		ear1="Dignitary's Earring",
+		ring2="Ramuh Ring +1",
+		waist="Kentarch Belt +1",
+		legs="Hizamaru Hizayoroi +1",
+		feet=HerculeanFeet.CritAGI})
 
     --------------------------------------
     -- Weaponskill sets
@@ -331,18 +359,18 @@ function init_gear_sets()
     
     sets.Shun = {
 		ammo="Jukukik Feather",
-        head=HerculeanHead.WSDEX,
+		head="Adhemar Bonnet",
 		neck=gear.ElementalGorget,
 		ear1="Brutal Earring",
 		ear2="Moonshade Earring",
 		body="Adhemar Jacket",
-		hands=AdhemarHands.B,
+		hands="AdhemarHands.B",
 		ring1="Epona's Ring",
 		ring2="Ramuh Ring +1",
 		back=Andartia.TP,
 		waist=gear.ElementalBelt,
 		legs="Samnuha Tights",
-		feet=HerculeanFeet.WSDEX}
+		feet=HerculeanFeet.TA}
     sets.precast.WS['Blade: Shun'] = set_combine(sets.precast.WS, sets.Shun)
     sets.precast.WS['Blade: Shun'].Low = set_combine(sets.precast.WS.Low, sets.Shun)
     sets.precast.WS['Blade: Shun'].Mid = set_combine(sets.precast.WS.Mid, sets.Shun)
@@ -354,14 +382,14 @@ function init_gear_sets()
 		neck="Caro Necklace",
 		ear1="Moonshade Earring",
 		ear2="Ishvara Earring",
-		body="Adhemar Jacket",
-		hands=HerculeanHands.WS,
-		ring1="Apate Ring",
+		body=HerculeanBody.STRWS,
+		hands=HerculeanHands.STRWS,
+		ring1="Rajas Ring",
 		ring2="Ifrit Ring",
 		back=Andartia.STRWS,
 		waist="Grunfeld Rope",
 		legs="Hizamaru Hizayoroi +1",
-		feet=HerculeanFeet.WSDEX}
+		feet=HerculeanFeet.STRWS}
     sets.precast.WS['Blade: Ten'] = set_combine(sets.precast.WS, sets.Ten)
     sets.precast.WS['Blade: Ten'].Low = set_combine(sets.precast.WS['Blade: Ten'], {})
     sets.precast.WS['Blade: Ten'].Mid = set_combine(sets.precast.WS['Blade: Ten'].Low, {})
@@ -380,7 +408,7 @@ function init_gear_sets()
         back=Andartia.DEXWS,
 		waist="Sveltesse Gouriz +1",
 		legs="Samnuha Tights",
-		feet=HerculeanFeet.TA}
+		feet=HerculeanFeet.CritAGI}
     sets.precast.WS['Blade: Hi'] = set_combine(sets.precast.WS, sets.Hi)
     sets.precast.WS['Blade: Hi'].Low = set_combine(sets.precast.WS['Blade: Hi'], {})
     sets.precast.WS['Blade: Hi'].Mid = set_combine(sets.precast.WS['Blade: Hi'], {})
@@ -389,17 +417,17 @@ function init_gear_sets()
     sets.Kamu = {
 		ammo="Seething Bomblet +1",
 		head="Lilitu Headpiece",
-		neck="Caro Necklace",
+		neck=gear.ElementalGorget,
 		ear1="Brutal Earring",
 		ear2="Ishvara Earring",
-		body="Adhemar Jacket",
-		hands=HerculeanHands.WS,
-		ring1="Epona's Ring",
+		body=HerculeanBody.STRWS,
+		hands=HerculeanHands.STRWS,
+		ring1="Rajas Ring",
 		ring2="Ifrit Ring",
 		back=Andartia.STRWS,
-		waist="Grunfeld Rope",
-		legs="Samnuha Tights",
-		feet=HerculeanFeet.WSDEX}
+		waist=gear.ElementalBelt,
+		legs="Hizamaru Hizayoroi +1",
+		feet=HerculeanFeet.STRWS}
     sets.precast.WS['Blade: Kamu'] = set_combine(sets.precast.WS, sets.Kamu)
     sets.precast.WS['Blade: Kamu'].Low = set_combine(sets.precast.WS.Low, sets.Kamu)
     sets.precast.WS['Blade: Kamu'].Mid = set_combine(sets.precast.WS.Mid, sets.Kamu)
@@ -407,7 +435,7 @@ function init_gear_sets()
     
     sets.Metsu = {
 		ammo="Jukukik Feather",
-		head=HerculeanHead.WSDEX,
+		head=HerculeanHead.DEXWS,
 		neck="Caro Necklace",
 		ear1="Dominance Earring +1",
 		ear2="Ishvara Earring",
@@ -418,7 +446,7 @@ function init_gear_sets()
 		back=Andartia.DEXWS,
 		waist="Grunfeld Rope",
 		legs="Samnuha Tights",
-		feet=HerculeanFeet.WSDEX}
+		feet=HerculeanFeet.DEXWS}
     sets.precast.WS['Blade: Metsu'] = set_combine(sets.precast.WS, sets.Metsu)
     sets.precast.WS['Blade: Metsu'].Low = set_combine(sets.precast.WS['Blade: Metsu'], {})
     sets.precast.WS['Blade: Metsu'].Mid = set_combine(sets.precast.WS['Blade: Metsu'].Low, {})
@@ -562,13 +590,13 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         end
         if LugraWSList:contains(spell.english) then
             if world.time >= (17*60) or world.time <= (7*60) then
-                equip(sets.Lugra)
+                equip(sets.MoonLugra)
             else
                 equip(sets.BrutalTrux)
             end
         elseif spell.english == 'Blade: Hi' or spell.english == 'Blade: Ten' then
             if world.time >= (17*60) or world.time <= (7*60) then
-                equip(sets.BrutalLugra)
+                equip(sets.MoonLugra)
             else
                 equip(sets.MoonshadeWS)
             end
@@ -790,9 +818,9 @@ function determine_haste_group()
             classes.CustomMeleeGroups:append('MaxHaste')
         elseif ((buffactive[580] or buffactive[33] or buffactive.march == 2) or
                  (buffactive.march == 1 and buffactive[604])) then
-            classes.CustomMeleeGroups:append('MidHaste')
+            classes.CustomMeleeGroups:append('MaxHaste')
         elseif (buffactive.march == 1 or buffactive[604]) then
-            classes.CustomMeleeGroups:append('')
+            classes.CustomMeleeGroups:append('MaxHaste')
         end
     else
 		if (buffactive[580] and ( buffactive.march or buffactive[33] or buffactive.embrava or buffactive[604])) or  --Indi/Geo-Haste + Anything
@@ -810,7 +838,7 @@ function determine_haste_group()
 			(buffactive[33] and buffactive[604]) then  --Haste + Mighty Guard
 				classes.CustomMeleeGroups:append('MaxHaste')
 		elseif buffactive[33] or buffactive[604] or buffactive.march == 2 then
-				classes.CustomMeleeGroups:append('MidHaste')
+				classes.CustomMeleeGroups:append('MaxHaste')
 		end
 	end
 end
